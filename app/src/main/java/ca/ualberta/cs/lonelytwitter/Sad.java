@@ -1,13 +1,15 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.util.Date;
+
 public class Sad extends Mood {
 
-    Happy(){
+    Sad(){
         super();
         this.name = "Sad";
     }
 
-    Happy(Date d){
+    Sad(Date d){
         super(d);
         this.name = "Sad";
     }

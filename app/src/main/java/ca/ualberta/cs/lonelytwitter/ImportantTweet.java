@@ -4,8 +4,6 @@ From TAs.
 
 package ca.ualberta.cs.lonelytwitter;
 
-import java.util.Date;
-
 public class ImportantTweet extends Tweet {
 
     ImportantTweet(){

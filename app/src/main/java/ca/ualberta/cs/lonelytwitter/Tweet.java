@@ -28,10 +28,10 @@ public abstract class Tweet {
         return this.message;
     }
 
-    public void setMessage(){
+    public void setMessage(String message) throws TweetTooLongException{
         if(message.length() <= this.MAX_CHARS){
             this.message = message;
-        } else(){
+        } else {
             throw new TweetTooLongException();
         }
     }
