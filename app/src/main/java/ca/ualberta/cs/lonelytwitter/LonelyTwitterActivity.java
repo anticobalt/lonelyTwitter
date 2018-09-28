@@ -40,6 +40,7 @@ public class LonelyTwitterActivity extends Activity {
 
 		bodyText = (EditText) findViewById(R.id.body);
 		Button saveButton = (Button) findViewById(R.id.save);
+		Button clearButton = (Button) findViewById(R.id.clear);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
@@ -50,11 +51,19 @@ public class LonelyTwitterActivity extends Activity {
 					ImportantTweet newTweet = new ImportantTweet();
 					newTweet.setMessage(text);
 					newTweet.setDate(new Date());
-					saveInFile();
 					tweets.add(newTweet);
+					saveInFile();
 					adapter.notifyDataSetChanged();
 				} catch (TweetTooLongException e){}
 
+			}
+		});
+
+		clearButton.setOnClickListener(new View.OnClickListener(){
+			public void onClick(View v){
+				tweets.clear();
+				saveInFile();
+				adapter.notifyDataSetChanged();
 			}
 		});
 	}
