@@ -14,16 +14,6 @@ public abstract class Tweet {
     private static final Integer MAX_CHARS = 140;
     private ArrayList<Mood> moods = new ArrayList<Mood>();
 
-    Tweet(){
-        this.date = new Date();
-        this.message = "This is a default message.";
-    }
-
-    Tweet(String message){
-        this.date = new Date();
-        this.message = message;
-    }
-
     public String getMessage(){
         return this.message;
     }
@@ -36,8 +26,16 @@ public abstract class Tweet {
         }
     }
 
+    public void setDate(Date d){
+        this.date = d;
+    }
+
     public Date getDate(){
         return this.date;
+    }
+
+    public String toString(){
+        return this.date.toString() + " | " + this.message;
     }
 
     public abstract Boolean isImportant();
