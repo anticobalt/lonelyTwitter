@@ -24,6 +24,15 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * The main Activity that handles everything.
+ *
+ * @author anticobalt
+ * @see Tweet
+ * @see Mood
+ * @see Tweetable
+ */
+
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";

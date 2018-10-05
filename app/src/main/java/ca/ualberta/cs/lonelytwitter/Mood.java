@@ -2,6 +2,13 @@ package ca.ualberta.cs.lonelytwitter;
 
 import java.util.Date;
 
+/**
+ * Abstract class representing Moods.
+ *
+ * @author anticobalt
+ * @see Tweet
+ */
+
 public abstract class Mood {
 
     protected Date date;

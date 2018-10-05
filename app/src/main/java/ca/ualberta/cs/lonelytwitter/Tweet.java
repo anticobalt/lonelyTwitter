@@ -7,6 +7,15 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Represents a Tweet.
+ *
+ * @author anticobalt
+ * @see NormalTweet
+ * @see ImportantTweet
+ * @see Mood
+ */
+
 public abstract class Tweet {
 
     private Date date;
