@@ -2,20 +2,42 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.app.Activity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.widget.EditText;
 
-import junit.framework.TestCase;
+import com.robotium.solo.Solo;
 
-/**
- * Created by wz on 14/09/15.
- */
-public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 {
+public class LonelyTwitterActivityTest extends
+        ActivityInstrumentationTestCase2<LonelyTwitterActivity> {
 
-    public LonelyTwitterActivityTest() {
-        super(ca.ualberta.cs.lonelytwitter.LonelyTwitterActivity.class);
+    private Solo solo;
+
+    public LonelyTwitterActivityTest(){
+        super(LonelyTwitterActivity.class);
     }
 
-    public void testStart() throws Exception {
-        Activity activity = getActivity();
-
+    @Override
+    public void setUp(){
+        solo = new Solo(getInstrumentation(), getActivity());
     }
+
+    @Override
+    public void tearDown(){
+        solo.finishOpenedActivities();
+    }
+
+    public void testTweet(){
+        solo.assertCurrentActivity("wrong activity", "ABC");
+    }
+
+    public void testEquals(){
+        assertEquals("not equal", "4", "5");
+    }
+
+    public void testAddTweet(){
+        solo.enterText((EditText) solo.getView(R.id.body), "don't know");
+        solo.clickOnButton("Save");
+        solo.clearEditText((EditText) solo.getView(R.id.body));
+        assertTrue(solo.waitForText("don't know"));
+    }
+
 }
